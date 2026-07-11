@@ -1,13 +1,12 @@
 /* ============================================================
-   IDEA AI — Main JavaScript
-   Vanilla JS only. No framework.
+   Idea AI — Main JavaScript
    ============================================================ */
 
 (function () {
   'use strict';
 
   // ── Nav scroll effect ──────────────────────────────────────
-  const navbar = document.getElementById('navbar');
+  var navbar = document.getElementById('navbar');
 
   function onScroll() {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
@@ -16,66 +15,72 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // ── Mobile nav toggle ──────────────────────────────────────
-  const navToggle = document.getElementById('navToggle');
-  const navLinks  = document.getElementById('navLinks');
+  // ── Mobile menu toggle (same pattern as adpye) ─────────────
+  var navToggle   = document.getElementById('navToggle');
+  var mobileMenu  = document.getElementById('mobileMenu');
+  var iconOpen    = document.getElementById('icon-hamburger');
+  var iconClose   = document.getElementById('icon-close');
 
-  navToggle.addEventListener('click', function () {
-    const open = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', open);
-    // Animate hamburger → X
-    navToggle.classList.toggle('is-open', open);
-  });
+  if (navToggle && mobileMenu && iconOpen && iconClose) {
+    navToggle.addEventListener('click', function () {
+      var isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!isExpanded));
 
-  navLinks.querySelectorAll('.nav-link').forEach(function (link) {
-    link.addEventListener('click', function () {
-      navLinks.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.classList.remove('is-open');
+      if (isExpanded) {
+        // Close menu
+        mobileMenu.style.display = 'none';
+        iconOpen.style.display = '';
+        iconClose.style.display = 'none';
+      } else {
+        // Open menu
+        mobileMenu.style.display = 'flex';
+        iconOpen.style.display = 'none';
+        iconClose.style.display = '';
+      }
     });
-  });
 
-  // Close nav if user taps outside
-  document.addEventListener('click', function (e) {
-    if (!navbar.contains(e.target) && navLinks.classList.contains('open')) {
-      navLinks.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      navToggle.classList.remove('is-open');
-    }
-  });
+    // Close on link click
+    mobileMenu.querySelectorAll('.mobile-menu__link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileMenu.style.display = 'none';
+        iconOpen.style.display = '';
+        iconClose.style.display = 'none';
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 
   // ── Active nav link on scroll ──────────────────────────────
-  const sections = document.querySelectorAll('section[id]');
+  var sections = document.querySelectorAll('section[id]');
 
   function updateActiveNavLink() {
-    const scrollPos = window.scrollY + 130;
+    var scrollPos = window.scrollY + 130;
     sections.forEach(function (section) {
-      const top    = section.offsetTop;
-      const bottom = top + section.offsetHeight;
-      const id     = section.getAttribute('id');
-      const link   = document.querySelector('.nav-link[href="#' + id + '"]');
-      if (link) {
+      var top    = section.offsetTop;
+      var bottom = top + section.offsetHeight;
+      var id     = section.getAttribute('id');
+      var links  = document.querySelectorAll('.nav-link[href="#' + id + '"]');
+      links.forEach(function (link) {
         link.classList.toggle('active', scrollPos >= top && scrollPos < bottom);
-      }
+      });
     });
   }
 
   // ── Footer year ────────────────────────────────────────────
-  const yearEl = document.getElementById('year');
+  var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // ── Contact form (Formspree) ───────────────────────────────
-  const form = document.getElementById('contactForm');
+  var form = document.getElementById('contactForm');
   if (form) {
-    const submitBtn  = document.getElementById('submitBtn');
-    const btnText    = submitBtn.querySelector('.btn-text');
-    const btnLoading = submitBtn.querySelector('.btn-loading');
-    const formStatus = document.getElementById('formStatus');
+    var submitBtn  = document.getElementById('submitBtn');
+    var btnText    = submitBtn.querySelector('.btn-text');
+    var btnLoading = submitBtn.querySelector('.btn-loading');
+    var formStatus = document.getElementById('formStatus');
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      // Loading state
       submitBtn.disabled = true;
       btnText.hidden    = true;
       btnLoading.hidden = false;
@@ -83,7 +88,7 @@
       formStatus.className = 'form-status';
 
       try {
-        const response = await fetch(form.action, {
+        var response = await fetch(form.action, {
           method: 'POST',
           body: new FormData(form),
           headers: { Accept: 'application/json' },
@@ -94,8 +99,8 @@
           formStatus.classList.add('form-status--success');
           form.reset();
         } else {
-          const json = await response.json().catch(() => ({}));
-          const msg  = json.errors && json.errors.length
+          var json = await response.json().catch(function() { return {}; });
+          var msg  = json.errors && json.errors.length
             ? json.errors.map(function (err) { return err.message; }).join(', ')
             : 'Something went wrong. Please try again.';
           throw new Error(msg);
@@ -113,11 +118,11 @@
   }
 
   // ── Scroll-in animation (IntersectionObserver) ────────────
-  const style = document.createElement('style');
-  style.textContent = '.fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; } .fade-in.visible { opacity: 1; transform: none; }';
+  var style = document.createElement('style');
+  style.textContent = '.fade-in{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}.fade-in.visible{opacity:1;transform:none}';
   document.head.appendChild(style);
 
-  const targets = document.querySelectorAll(
+  var targets = document.querySelectorAll(
     '.product-card, .highlight, .contact-item, .visual-card, .about-text p, .coming-soon'
   );
 
@@ -126,7 +131,7 @@
     el.style.transitionDelay = (i * 0.04) + 's';
   });
 
-  const observer = new IntersectionObserver(function (entries) {
+  var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');

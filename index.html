@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="IDEA AI — Building smart tools for modern businesses. Explore our products: WhatsApp CRM and adpye." />
-  <title>IDEA AI — Smart Tools for Modern Businesses</title>
+  <meta name="description" content="Idea AI — Building smart tools for modern businesses. Explore our products: WhatsApp CRM, adpye, and AI Assistant." />
+  <title>Idea AI — Smart Tools for Modern Businesses</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=4" />
 </head>
 <body>
 
@@ -17,7 +17,7 @@
     <nav class="nav-container">
       <a href="#home" class="nav-logo">
         <span class="logo-icon">⚡</span>
-        <span class="logo-text">IDEA <span class="logo-accent">AI</span></span>
+        <span class="logo-text">Idea <span class="logo-accent">AI</span></span>
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" class="nav-link active">Home</a></li>
@@ -25,10 +25,25 @@
         <li><a href="#services" class="nav-link">Products</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" style="cursor:pointer;padding:8px;">
+        <svg id="icon-hamburger" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg id="icon-close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" style="display:none;">
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+          <line x1="6" y1="18" x2="18" y2="6"></line>
+        </svg>
       </button>
     </nav>
+    <!-- Mobile Menu (inside header but uses hidden toggle like adpye) -->
+    <div id="mobileMenu" class="mobile-menu" style="display:none;">
+      <a href="#home" class="mobile-menu__link">Home</a>
+      <a href="#about" class="mobile-menu__link">About</a>
+      <a href="#services" class="mobile-menu__link">Products</a>
+      <a href="#contact" class="mobile-menu__link">Contact</a>
+    </div>
   </header>
 
   <main>
@@ -56,7 +71,7 @@
         </div>
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-number">2</span>
+            <span class="stat-number">3</span>
             <span class="stat-label">Products Live</span>
           </div>
           <div class="stat-divider"></div>
@@ -81,12 +96,12 @@
       <div class="container">
         <div class="section-header">
           <span class="section-tag">About Us</span>
-          <h2 class="section-title">What is IDEA AI?</h2>
+          <h2 class="section-title">What is Idea AI?</h2>
         </div>
         <div class="about-grid">
           <div class="about-text">
             <p class="about-lead">
-              IDEA AI is an indie software lab focused on shipping practical, well-crafted digital products.
+              Idea AI is an indie software lab founded by <strong>Ashwin Golani</strong>, focused on shipping practical, well-crafted digital products.
             </p>
             <p>
               We started with a simple belief: most business tools are either too complex or too generic.
@@ -146,7 +161,7 @@
           <span class="section-tag">Our Products</span>
           <h2 class="section-title">What We've Built</h2>
           <p class="section-subtitle">
-            Two products live and growing. Each one solving a distinct problem for businesses.
+            Three products live and growing. Each one solving a distinct problem for businesses.
           </p>
         </div>
         <div class="products-grid">
@@ -176,13 +191,13 @@
               <li>Built with Angular 17 + Spring Boot</li>
             </ul>
             <div class="product-card__footer">
-              <a href="https://chats.ideaai.in" target="_blank" rel="noopener noreferrer" class="btn btn--product">
+              <a href="https://chat.ideaai.in" target="_blank" rel="noopener noreferrer" class="btn btn--product">
                 Open App
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
                 </svg>
               </a>
-              <span class="product-url">chats.ideaai.in</span>
+              <span class="product-url">chat.ideaai.in</span>
             </div>
           </div>
 
@@ -213,13 +228,48 @@
               <li>Decap CMS admin panel included</li>
             </ul>
             <div class="product-card__footer">
-              <a href="https://adpye.netlify.app" target="_blank" rel="noopener noreferrer" class="btn btn--product btn--product-featured">
+              <a href="https://adpye.ideaai.in" target="_blank" rel="noopener noreferrer" class="btn btn--product btn--product-featured">
                 View Live
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
                 </svg>
               </a>
-              <span class="product-url">adpye.netlify.app</span>
+              <span class="product-url">adpye.ideaai.in</span>
+            </div>
+          </div>
+
+          <!-- AI Assistant -->
+          <div class="product-card">
+            <div class="product-card__header">
+              <div class="product-icon product-icon--purple">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M18 9.75l-.259-1.035a3.375 3.375 0 00-2.456-2.456L14.25 6l1.035-.259a3.375 3.375 0 002.456-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="product-meta">
+                <span class="product-tag product-tag--live">● Live</span>
+              </div>
+            </div>
+            <h3 class="product-title">AI Assistant</h3>
+            <p class="product-description">
+              Self-hosted AI chatbot platform. Embed on any website — answers from documents,
+              queries databases, exports data, calls APIs. Your data stays on your server.
+            </p>
+            <ul class="product-features">
+              <li>Knowledge base with RAG pipeline</li>
+              <li>Natural language database queries</li>
+              <li>CSV/Excel export via chat</li>
+              <li>10+ AI providers supported</li>
+            </ul>
+            <div class="product-card__footer">
+              <a href="https://assistant.ideaai.in" target="_blank" rel="noopener noreferrer" class="btn btn--product">
+                View Demo
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+              </a>
+              <span class="product-url">assistant.ideaai.in</span>
             </div>
           </div>
 
@@ -261,16 +311,21 @@
             <div class="contact-item">
               <span class="contact-item__icon">💬</span>
               <div>
-                <strong>Response Time</strong>
-                <span>Usually within 24 hours</span>
+                <strong>WhatsApp</strong>
+                <a href="https://wa.me/917987230510" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: underline;">Chat with me</a>
               </div>
             </div>
             <div class="contact-social">
               <p>Find me online</p>
               <div class="social-links">
-                <a href="https://www.instagram.com/ideaai2026/" class="social-link" aria-label="GitHub">
+                <a href="https://wa.me/917987230510" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0C5.374 0 0 5.373 0 12c0 4.973 3.149 9.199 7.543 10.69.551.101.752-.233.752-.522 0-.256-.009-.934-.014-1.836-3.065.665-3.712-1.477-3.712-1.477-.501-1.272-1.224-1.610-1.224-1.610-1.001-.684.076-.669.076-.669 1.107.078 1.690 1.136 1.690 1.136.983 1.684 2.580 1.197 3.209.915.100-.711.385-1.197.700-1.473-2.447-.277-5.019-1.223-5.019-5.443 0-1.203.429-2.186 1.132-2.957-.114-.277-.490-1.399.107-2.914 0 0 .924-.296 3.027 1.128A10.528 10.528 0 0112 6.573a10.528 10.528 0 012.756.370c2.102-1.424 3.025-1.128 3.025-1.128.598 1.515.222 2.637.108 2.914.705.771 1.131 1.754 1.131 2.957 0 4.230-2.576 5.163-5.030 5.434.395.341.747 1.011.747 2.037 0 1.471-.014 2.655-.014 3.016 0 .291.199.628.756.521C20.854 21.196 24 16.972 24 12c0-6.627-5.373-12-12-12z"/>
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.133.558 4.133 1.535 5.867L.057 23.485a.5.5 0 00.611.611l5.618-1.478A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.502-5.234-1.381l-.374-.22-3.883 1.02 1.02-3.883-.22-.374A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                  </svg>
+                </a>
+                <a href="https://www.instagram.com/ideaai2026/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.054 1.97.24 2.43.403a4.088 4.088 0 011.47.957c.454.454.78.92.957 1.47.163.46.349 1.26.403 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.97-.403 2.43a4.088 4.088 0 01-.957 1.47 4.088 4.088 0 01-1.47.957c-.46.163-1.26.349-2.43.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.403a4.088 4.088 0 01-1.47-.957 4.088 4.088 0 01-.957-1.47c-.163-.46-.349-1.26-.403-2.43C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.054-1.17.24-1.97.403-2.43a4.088 4.088 0 01.957-1.47A4.088 4.088 0 015.063 2.293c.46-.163 1.26-.349 2.43-.403C8.759 1.832 9.139 1.82 12 1.82zM12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.903.333 4.14.63a5.876 5.876 0 00-2.126 1.384A5.876 5.876 0 00.63 4.14C.333 4.903.13 5.775.072 7.053.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.058 1.278.261 2.15.558 2.913a5.876 5.876 0 001.384 2.126 5.876 5.876 0 002.126 1.384c.763.297 1.635.5 2.913.558C8.333 23.986 8.741 24 12 24s3.667-.014 4.947-.072c1.278-.058 2.15-.261 2.913-.558a5.876 5.876 0 002.126-1.384 5.876 5.876 0 001.384-2.126c.297-.763.5-1.635.558-2.913C23.986 15.667 24 15.259 24 12s-.014-3.667-.072-4.947c-.058-1.278-.261-2.15-.558-2.913a5.876 5.876 0 00-1.384-2.126A5.876 5.876 0 0019.86.63C19.097.333 18.225.13 16.947.072 15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                   </svg>
                 </a>
                 <a href="https://www.linkedin.com/in/ashwingolani/" class="social-link" aria-label="LinkedIn">
@@ -322,19 +377,51 @@
       <div class="footer-brand">
         <a href="#home" class="nav-logo">
           <span class="logo-icon">⚡</span>
-          <span class="logo-text">IDEA <span class="logo-accent">AI</span></span>
+          <span class="logo-text">Idea <span class="logo-accent">AI</span></span>
         </a>
       </div>
       <div class="footer-col">
-         <p>Building smart tools for modern businesses.</p>
+         <p>Built by <strong>Ashwin Golani</strong> — smart tools for modern businesses.</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© <span id="year"></span> IDEA AI. All rights reserved.</p>
+      <p>© <span id="year"></span> Idea AI. All rights reserved.</p>
       <p>ideaai.in</p>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=3"></script>
+  <script>
+    // Inline mobile menu toggle
+    (function(){
+      var btn = document.getElementById('navToggle');
+      var menu = document.getElementById('mobileMenu');
+      var icoOpen = document.getElementById('icon-hamburger');
+      var icoClose = document.getElementById('icon-close');
+      if(!btn || !menu) return;
+
+      function closeMenu(){
+        menu.style.display = 'none';
+        if(icoOpen) icoOpen.style.display = '';
+        if(icoClose) icoClose.style.display = 'none';
+        btn.setAttribute('aria-expanded','false');
+      }
+
+      btn.addEventListener('click', function(){
+        var open = menu.style.display === 'flex';
+        if(open){ closeMenu(); }
+        else {
+          menu.style.display = 'flex';
+          if(icoOpen) icoOpen.style.display = 'none';
+          if(icoClose) icoClose.style.display = '';
+          btn.setAttribute('aria-expanded','true');
+        }
+      });
+
+      menu.querySelectorAll('.mobile-menu__link').forEach(function(link){
+        link.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
 </body>
 </html>
