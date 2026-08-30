@@ -434,10 +434,27 @@ input, textarea, select { font-family: inherit; }
 /* ============================================================
    PRODUCTS
    ============================================================ */
+.product-group-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 48px 0 4px;
+}
+.product-group-title:first-of-type {
+  margin-top: 0;
+}
+.product-group-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  margin: 0 0 24px;
+}
 .products-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
+}
+.products-grid + .product-group-title {
+  margin-top: 56px;
 }
 .product-card {
   background: var(--color-surface);
