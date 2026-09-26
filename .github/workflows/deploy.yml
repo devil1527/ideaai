@@ -19,13 +19,23 @@ jobs:
           script: |
             set -e
 
+            echo "Cloning latest version..."
             rm -rf /home/deploy-ideaai/site
-            git clone --depth 1 --branch main https://github.com/devil1527/ideaai.git /home/deploy-ideaai/site
 
-            rsync -a --delete \
+            git clone \
+              --depth 1 \
+              --branch main \
+              https://github.com/devil1527/ideaai.git \
+              /home/deploy-ideaai/site
+
+            echo "Deploying files..."
+
+            rsync -rlt --delete \
               --exclude='.git/' \
               /home/deploy-ideaai/site/ \
               /var/www/ideaai/
+
+            echo "Cleaning up..."
 
             rm -rf /home/deploy-ideaai/site
 
