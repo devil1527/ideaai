@@ -19,24 +19,30 @@ jobs:
           script: |
             set -e
 
-            echo "Cloning latest version..."
+            echo "========================================"
+            echo "Starting ideaai.in deployment"
+            echo "========================================"
+
+            echo "Cleaning previous temporary deployment..."
             rm -rf /home/deploy-ideaai/site
 
+            echo "Cloning latest main branch..."
             git clone \
               --depth 1 \
               --branch main \
               https://github.com/devil1527/ideaai.git \
               /home/deploy-ideaai/site
 
-            echo "Deploying files..."
+            echo "Deploying files to /var/www/ideaai..."
 
-            rsync -rlt --delete \
+            rsync -rl --delete \
               --exclude='.git/' \
               /home/deploy-ideaai/site/ \
               /var/www/ideaai/
 
-            echo "Cleaning up..."
-
+            echo "Cleaning temporary files..."
             rm -rf /home/deploy-ideaai/site
 
-            echo "Deployment completed successfully."
+            echo "========================================"
+            echo "Deployment completed successfully!"
+            echo "========================================"
