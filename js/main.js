@@ -123,7 +123,7 @@
   document.head.appendChild(style);
 
   var targets = document.querySelectorAll(
-    '.product-card, .highlight, .contact-item, .visual-card, .about-text p, .coming-soon'
+    '.work-card, .package-card, .highlight, .contact-item, .visual-card, .about-text p'
   );
 
   targets.forEach(function (el, i) {
