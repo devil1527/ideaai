@@ -10,7 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Deploy to VPS
+        uses: appleboy/scp-action@v1.0.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: deploy-ideaai
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: "."
+          target: "/home/deploy-ideaai/ideaai-upload"
+          rm: true
+          overwrite: true
+
+      - name: Publish website
         uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -20,29 +34,16 @@ jobs:
             set -e
 
             echo "========================================"
-            echo "Starting ideaai.in deployment"
+            echo "Publishing ideaai.in"
             echo "========================================"
-
-            echo "Cleaning previous temporary deployment..."
-            rm -rf /home/deploy-ideaai/site
-
-            echo "Cloning latest main branch..."
-            git clone \
-              --depth 1 \
-              --branch main \
-              https://github.com/devil1527/ideaai.git \
-              /home/deploy-ideaai/site
-
-            echo "Deploying files to /var/www/ideaai..."
 
             rsync -rl --delete \
               --exclude='.git/' \
-              /home/deploy-ideaai/site/ \
+              /home/deploy-ideaai/ideaai-upload/ \
               /var/www/ideaai/
 
-            echo "Cleaning temporary files..."
-            rm -rf /home/deploy-ideaai/site
+            rm -rf /home/deploy-ideaai/ideaai-upload
 
             echo "========================================"
-            echo "Deployment completed successfully!"
+            echo "ideaai.in deployment completed!"
             echo "========================================"
