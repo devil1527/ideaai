@@ -477,6 +477,8 @@ input, textarea, select { font-family: inherit; }
   box-shadow: var(--shadow-glow);
 }
 .work-card__emoji { font-size: 40px; line-height: 1; }
+.work-card__logo  { line-height: 1; display: flex; align-items: center; }
+.work-card__logo--light img { border-radius: 8px; background: #fff; padding: 2px; }
 .work-card__body  { flex: 1; }
 .work-card__title {
   font-size: 20px;
