@@ -605,9 +605,20 @@ input, textarea, select { font-family: inherit; }
   color: #fff;
   letter-spacing: -1px;
 }
+.price-includes {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-green);
+}
 .price-renewal {
   font-size: 13px;
+  color: var(--color-text-muted);
+}
+.price-note {
+  font-size: 12px;
   color: var(--color-text-faint);
+  font-style: italic;
+  margin-top: 2px;
 }
 
 .package-features {
